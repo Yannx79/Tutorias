@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Conexion implements IConexion {
-
+    
     private static Conexion conexion;
     private Connection connection;
 

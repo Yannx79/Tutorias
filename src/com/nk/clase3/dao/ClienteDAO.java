@@ -21,7 +21,7 @@ public class ClienteDAO implements IClienteDAO<ClienteDTO, String> {
             ps.setString(3, t.getApellidos());
             ps.setString(4, t.getTelefono());
             ps.setInt(5, t.getEliminado());
-            if (ps.execute()) {
+            if (!ps.execute()) {
                 isCreated = !isCreated;
             }
         } catch (Exception e) {
@@ -90,7 +90,7 @@ public class ClienteDAO implements IClienteDAO<ClienteDTO, String> {
             ps.setString(3, t.getTelefono());
             ps.setInt(4, t.getEliminado());
             ps.setString(5, t.getDni());
-            if (ps.execute()) {
+            if (!ps.execute()) {
                 isUpdate = !isUpdate;
             }
         } catch (Exception e) {
@@ -108,7 +108,7 @@ public class ClienteDAO implements IClienteDAO<ClienteDTO, String> {
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_DELETE);
             ps.setString(1, key);
-            if (ps.execute()) {
+            if (!ps.execute()) {
                 isDeleted = !isDeleted;
             }
         } catch (Exception e) {
